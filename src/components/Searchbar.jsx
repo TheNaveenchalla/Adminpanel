@@ -96,15 +96,44 @@ const Searchbar = () => {
           <p>No products found</p>
         ) : (
           filteredProducts.map((p) => (
+           
             <div className="product-card" key={p._id}>
-              <div className="product-info">
+  <div className="product-info">
 
-                <h3>{p.name}</h3>
-                <p className="price">₹{p.price}</p>
-                <span className="badge">{p.categoryType}</span>
+    <h3 className="product-name">{p.name}</h3>
 
-              </div>
-            </div>
+    <p className="price">₹{p.price}</p>
+
+    <span className="badge">{p.categoryType}</span>
+
+    {/* DESCRIPTION */}
+    {p.description && (
+      <p className="desc">{p.description}</p>
+    )}
+
+    {/* 🔥 FULL DETAILS */}
+    <div className="specs">
+
+      {/* 📱 MOBILE */}
+      {p.RAM && <span>📱 RAM: {p.RAM}GB</span>}
+      {p.Storage && <span>💾 {p.Storage}GB</span>}
+      {p.Camera && <span>📸 {p.Camera}</span>}
+
+      {/* 💻 LAPTOP */}
+      {p.Processor && <span>⚙️ {p.Processor}</span>}
+      {p.Battery && <span>🔋 {p.Battery}</span>}
+
+      {/* 💍 BANGLES */}
+      {p.Color && <span>🎨 {p.Color}</span>}
+      {p.Size && <span>📏 Size: {p.Size}</span>}
+      {p.Material && <span>🧱 {p.Material}</span>}
+      {p.Weight && <span>⚖️ {p.Weight}</span>}
+
+    </div>
+ 
+
+  </div>
+</div>
           ))
         )}
       </div>
